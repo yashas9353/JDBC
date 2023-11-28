@@ -9,9 +9,10 @@ public class Main {
 
         Statement st = con.createStatement();
 
-        ResultSet rs = st.executeQuery("select name,rollnum from student where classstd = 9");
-        rs.next();
-        System.out.println(rs.getString(1)+" "+rs.getInt(2));
+        ResultSet rs = st.executeQuery("select * from student");
+        while(rs.next()) {
+            System.out.println("Rollnum is "+rs.getInt(1)+" Class Studing "+rs.getInt(2)+" Name : "+rs.getString(3));
+        }
 
         rs.close();
         st.close();
